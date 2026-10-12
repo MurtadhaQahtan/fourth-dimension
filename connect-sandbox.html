@@ -1,0 +1,16 @@
+---
+permalink: /connect-sandbox.html
+---
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Connect TikTok - Fourth Dimension</title>
+<body style="font-family:sans-serif;max-width:40em;margin:3em auto;padding:0 1em">
+<h1>Fourth Dimension</h1>
+<p>This private tool lets the store owner publish the store's own product videos to the store's own TikTok account. Nothing is posted without the owner's approval.</p>
+<p>Permissions requested: <b>user.info.basic</b> (show which account is connected) and <b>video.publish</b> (upload the owner's approved videos).</p>
+<p><a id="go" href="#" style="display:inline-block;background:#111;color:#fff;padding:.7em 1.2em;border-radius:6px;text-decoration:none">Connect TikTok</a></p>
+<p><a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+<script>
+var s = Array.from(crypto.getRandomValues(new Uint8Array(12))).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+sessionStorage.setItem('tt_state', s);
+document.getElementById('go').href = 'https://www.tiktok.com/v2/auth/authorize/?client_key=sbawbh32cj9niboax2&scope=' + encodeURIComponent('user.info.basic,video.publish') +
+  '&response_type=code&redirect_uri=' + encodeURIComponent('https://murtadhaqahtan.github.io/fourth-dimension/callback.html') + '&state=' + s;
+</script>
