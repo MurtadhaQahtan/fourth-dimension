@@ -1,5 +1,13 @@
-<!doctype html><meta charset="utf-8"><title>Fourth Dimension: connected</title>
-<body style="font-family:sans-serif;max-width:40em;margin:3em auto">
-<h1>Connection result</h1><p>Copy the code below and give it to the store owner's tool. Do not share it with anyone else.</p>
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fourth Dimension: connected</title>
+<body style="font-family:sans-serif;max-width:40em;margin:3em auto;padding:0 1em">
+<h1>TikTok connection</h1>
+<p id="msg"></p>
+<p>Copy the code below into the store owner's posting tool. It works once and expires in minutes. Do not share it.</p>
 <pre id="r" style="white-space:pre-wrap;word-break:break-all;background:#eee;padding:1em"></pre>
-<script>document.getElementById('r').textContent = location.search.slice(1) || 'No code in the address.';</script>
+<p><a href="connect.html">Back</a> | <a href="privacy.html">Privacy Policy</a></p>
+<script>
+var q = new URLSearchParams(location.search), ok = q.get('code');
+var good = q.get('state') && q.get('state') === sessionStorage.getItem('tt_state');
+document.getElementById('msg').textContent = q.get('error') ? 'TikTok returned an error: ' + (q.get('error_description') || q.get('error')) : ok ? (good ? 'Connected. Authorization received from TikTok.' : 'Authorization received (open this page from the Connect button in the same browser to check the state).') : 'No authorization code in this address.';
+document.getElementById('r').textContent = ok ? 'code=' + ok + '\nscopes=' + (q.get('scopes') || '') : '';
+</script>
