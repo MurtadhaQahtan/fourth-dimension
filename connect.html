@@ -11,6 +11,6 @@ permalink: /connect.html
 <script>
 var s = Array.from(crypto.getRandomValues(new Uint8Array(12))).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
 sessionStorage.setItem('tt_state', s);
-document.getElementById('go').href = 'https://www.tiktok.com/v2/auth/authorize/?client_key=awah1ev0ymqx9cec&scope=' + encodeURIComponent('user.info.basic,video.publish') +
+document.getElementById('go').href = 'https://www.tiktok.com/v2/auth/authorize/?client_key=sbawbh32cj9niboax2&scope=' + encodeURIComponent('user.info.basic,video.publish') +
   '&response_type=code&redirect_uri=' + encodeURIComponent('https://murtadhaqahtan.github.io/fourth-dimension/callback.html') + '&state=' + s;
 </script>
